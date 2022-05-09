@@ -6,4 +6,7 @@ application=Flask(__name__)
 def hello_world():
     return 'This is just a test'
 
+@application.route('/smoke')
+def hello_world():
+    return 'This is smoke'
 #application.run()
