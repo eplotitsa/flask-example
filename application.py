@@ -7,6 +7,6 @@ def hello_world():
     return 'This is just a test'
 
 @application.route('/smoke')
-def hello_world():
+def smoke():
     return 'This is smoke'
 #application.run()
