@@ -1,12 +1,12 @@
-from flask import Flask
+from src import app, api,models, db
 
-application=Flask(__name__)
+#application=Flask(__name__)
 
-@application.route('/')
+@app.route('/')
 def hello_world():
     return 'This is just a test'
 
-@application.route('/smoke')
+@app.route('/smoke')
 def smoke():
     return 'This is smoke'
 #application.run()
