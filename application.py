@@ -6,9 +6,9 @@ from src import application, api,models, db
 def hello_world():
     return 'This is just a test'
 
-@application.route('/smoke')
-def smoke():
-    return 'This is smoke'
+@application.route('/testfun')
+def testfun():
+    return 'This is testfun'
 
 if __name__ == "__main__":
     application.run()
