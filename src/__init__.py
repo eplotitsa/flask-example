@@ -9,10 +9,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 
-app=Flask(__name__)
-app.config.from_object(config.Config)
-api=Api(app)
-db=SQLAlchemy(app)
+application=Flask(__name__)
+application.config.from_object(config.Config)
+api=Api(application)
+db=SQLAlchemy(application)
 
 
 

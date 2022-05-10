@@ -1,12 +1,14 @@
-from src import app, api,models, db
+from src import application, api,models, db
 
 #application=Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def hello_world():
     return 'This is just a test'
 
-@app.route('/smoke')
+@application.route('/smoke')
 def smoke():
     return 'This is smoke'
-#application.run()
+
+if __name__ == "__main__":
+    application.run()
