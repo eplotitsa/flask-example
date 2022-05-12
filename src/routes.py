@@ -48,10 +48,39 @@ class CarListApi(Resource):
 
     def post(self):
         car_json=request.json
-        return Csv_data_add(car_json),201
+        if not car_json:
+            return {'message':'Wrong data'}, 400
+        try:
+            auto = Cars(
+                auto=car_json['auto'],
+                plate=car_json['plate'],
+                color=car_json['color']
+            )
+            db.session.add(auto)
+            db.session.commit()
+        except(ValueError, KeyError):
+            return {'message':'Wrong data 1'}, 400
+        return {'message':'Record created'}, 201
 
-    def put(self):
-        pass
+    def put(self, plate):
+        car_json=request.json
+        if not car_json:
+            return {'message':'Wrong data'}, 400
+        try:
+            db.session.query(Cars).filter_by(plate=plate).update(
+                dict(
+                    auto=car_json['auto'],
+                    plate=car_json['plate'],
+                    color=car_json['color']
+                )
+            )
+            db.session.commit()
+        except(ValueError, KeyError):
+            return {'message':'Wrong data 1'}, 400
+        return {'message':'Record updated'}, 200
+
+
+
     def patch(self):
         pass
     def delete(self):
